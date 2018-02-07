@@ -1,0 +1,7 @@
+/* pages/chatRecord/chatRecord.wxss */
+@import '/pages/talk/talk.wxss';
+
+.list-wrapper {
+  height: 100%;
+  padding: 0;
+}

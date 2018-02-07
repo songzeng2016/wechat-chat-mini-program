@@ -1,0 +1,17 @@
+<view>
+  <view class="userinfo">
+    <image src='{{userInfo.headimgurl}}' class='userinfo-avatar fl'></image>
+    <view class='fl list_msg'>
+      <view class='text_name'>{{userInfo.nickname}}</view>
+      <!-- <view class='text_msg '>微信号：{{motto}}</view> -->
+    </view>
+    <view class='disply fr list_r'>
+      <image src='/image/ewm.png' class='del_img'></image>
+    </view>
+  </view>
+  <view class="usermotto" bindtap='navToPersonalSetting' data-id='{{userInfo.openid}}'>
+    <image src='/image/set.png' class='set_img fl'></image>
+    <text class="set_font">设置</text>
+    <image src='/image/mine_path.png' class='set_imgs fr'></image>
+  </view>
+</view>

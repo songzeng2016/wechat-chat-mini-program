@@ -1,0 +1,91 @@
+<!--pages/talk/talk.wxml-->
+<view class='wrapper' catchtap='closeChoice'>
+
+  <!-- 群信息 -->
+  <view class='info' wx:if='{{!roomType}}' catchtap='navToChatRoom' data-id='{{id}}'>
+    <image src='/image/contact1.png'></image>
+  </view>
+
+  <!-- 聊天列表 -->
+  <!-- style='padding-bottom: {{(!emoji || !media) && "300rpx"}};' -->
+  <scroll-view class='list-wrapper' scroll-y scroll-into-view='{{bottom}}' style='height: {{(!emoji || !media) && "1000rpx"}};' scroll-with-animation enable-back-to-top>
+    <block wx:for='{{talk}}' wx:key='this'>
+
+      <!-- 提示消息 -->
+      <view wx:if='{{item.chat_type == 9}}' class='list message-list'>
+        <text class='message'>{{item.message}}</text>
+      </view>
+
+      <!-- 我的聊天记录 -->
+      <!-- <view wx:elif='{{item.isMe}}' class='list my-list'>
+        <view class='avatar' catchtap='navToPersonage' data-open-id='{{item.openId}}'></view>
+        <text class='message'>{{item.message}}</text>
+      </view> -->
+
+      <view wx:else class='list {{item.isMe ? "my-list" : "other-list"}}'>
+
+        <image class='avatar' src='{{item.headimgurl}}' catchtap='{{!item.isMe && "navToPersonage"}}' catchlongpress='{{!item.isMe && "atMessage"}}' data-name='{{item.nickname}}' data-id='{{item.openid}}'></image>
+        <view class='other-info'>
+          <text wx:if='{{!item.isMe}}' class='name'>{{item.nickname}}</text>
+          <text wx:if='{{item.chat_type == 1}}' class='message'>{{item.chat_desc}}</text>
+          <image wx:elif='{{item.chat_type == 2}}' class='image' src='{{item.chat_desc}}' catchtap='previewImg' data-src='{{item.chat_desc}}' mode='aspectFit'></image>
+          <audio wx:elif='{{item.chat_type == 3}}' src='{{item.chat_desc}}'></audio>
+
+          <view wx:elif='{{item.chat_type == 4}}'>
+            <video class='myVideo' id='myVideo{{index}}' src='{{item.chat_desc}}'></video>
+            <image class='image' src='/image/playVideo.png' catchtap='playVideo' data-index='{{index}}' mode='aspectFit'></image>
+          </view>
+
+          <image wx:elif='{{item.chat_type == 5}}' class='emoji' src='/image/emoji/{{item.chat_desc}}'></image>
+        </view>
+
+      </view>
+
+      <!-- 别人的聊天记录 -->
+      <!-- <view wx:else class='list other-list'>
+
+         <view class='avatar' catchtap='navToPersonage' catchlongtap='atMessage' data-open-id='{{item.openId}}' data-name='{{item.nickname}}'></view> 
+         <view class='other-info'>
+          <text class='name'>{{item.nickname}}</text>
+          <text wx:if='{{item.chat_type == 1}}' class='message'>{{item.chat_desc}}</text>
+          <image wx:elif='{{item.chat_type == 2}}' src='{{item.chat_desc}}'></image>
+          <video wx:elif='{{item.chat_type == 4}}' src='{{item.chat_desc}}'></video>
+        </view> 
+
+      </view> -->
+
+    </block>
+
+    <view id='{{bottom}}' class='bottom'></view>
+  </scroll-view>
+
+  <!-- 键盘区域 -->
+  <view class='panel'>
+    <view class='operation'>
+      <image catchtap='showRecord' src='/image/{{record ? "record1" : "selected"}}.png'></image>
+      <input wx:if='{{record}}' class='message' bindinput='inputMessgae' bindconfirm='sendMessage' value='{{message}}' focus='{{messageFocus}}' cursor-spacing='10'></input>
+      <view wx:else class='record' catchtouchstart='startRecord' catchtouchend='stopRecord'>{{recordMessgae}}</view>
+      <image catchtap='showEmoji' src='/image/{{emoji ? "emoj1" : "selected"}}.png'></image>
+      <image catchtap='showMedia' src='/image/add1.png'></image>
+      <!-- <image catchtap='sendMessage' src='/image/send.png'></image> -->
+    </view>
+
+    <!-- 图片 视频 -->
+    <view class='choice' hidden='{{media}}'>
+      <view class='img view' catchtap='choicePicture'>
+        <image src='/image/picture.png'></image>
+        <view class='text'>照片</view>
+      </view>
+      <view class='video view' catchtap='choiceVideo'>
+        <image src='/image/video.png'></image>
+        <view class='text'>拍摄</view>
+      </view>
+    </view>
+
+    <!-- 表情 -->
+    <view class='emojiWrapper' hidden='{{emoji}}'>
+      <image wx:for='{{emojiList}}' wx:key='emoji' src='/image/emoji/{{item.src}}' catchtap='choiceEmoji' data-src='{{item.src}}' data-name='{{item.src}}'></image>
+    </view>
+  </view>
+
+</view>

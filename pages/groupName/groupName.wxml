@@ -1,0 +1,6 @@
+<view>
+  <input class='content' bindinput="nameTxtFn"></input>
+</view>
+<view class='top'>在这里可以重新设置聚点的名称</view>
+<button hover-class='btn_hover' class='btn colors' bindtap='groupNameFn'>确定</button>
+<button class='btn' bindtap='navigateBack'>取消</button>
