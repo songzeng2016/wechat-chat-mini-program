@@ -22,7 +22,7 @@
 
       <image src='{{item.chatroom_logo}}' class='list_img fl'></image>
       <view class='fl list_msg'>
-        <view class='text_name'>{{item.chatroom_name}}({{item.chatroom_usercount}})</view>
+        <view class='text_name ellipsis'>{{item.chatroom_name}}({{item.chatroom_usercount}})</view>
         <!-- <view class='text_msg '>
           <view class='flow'>{{item.msg}}</view>
         </view> -->

@@ -63,9 +63,10 @@ Page({
 
     wc.get(getData, (json) => {
       if (json[isSuccess] === success) {
-        that.setData({
-          userInfo: json[data]
-        })
+        let userInfo = json[data]
+        userInfo.gender = userInfo.sex == 1 ? '男' : (userInfo.sex == 2 ? '女' : '未知')
+
+        that.setData({ userInfo })
       }
     })
   },

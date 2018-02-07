@@ -1,6 +1,4 @@
 // 定义常量
-const Promise = require('./es6-promise.min.js')
-
 const IMGURL = 'https://sp.yangchengtech.com'
 const HOST = `${IMGURL}/milian/Handler/Handler.ashx`
 const [DATA, IsSuccess, SUCCESS, MESSAGE] = ['Data', 'IsSuccess', 'true', 'returnMsg']
@@ -13,32 +11,6 @@ class wc {
     this.isSuccess = IsSuccess
     this.success = SUCCESS
     this.message = MESSAGE
-  }
-
-  _Promise(fn) {
-    return (obj = {}) => {
-      return new Promise((resolve, reject) => {
-        obj.success = (res) => {
-          resolve(res)
-        }
-
-        obj.fail = (res) => {
-          reject(res)
-        }
-
-        fn(obj)
-      })
-    }
-  }
-
-  uploadFile() {
-    _Promise(wx.uploadFIle)({
-
-    }).then((res) => {
-
-    }).catch((err) => {
-
-    })
   }
 
   get(data, successed, showLoading) {

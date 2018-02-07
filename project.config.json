@@ -1,16 +1,17 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.5.3",
-	"appid": "wx0dcdf996af4bae73",
-	"projectname": "milan11",
+	"libVersion": "1.9.1",
+	"appid": "wxdb241b4572e893f8",
+	"projectname": "wechat-chat-mini-program",
+	"isGameTourist": false,
 	"condition": {
 		"search": {
 			"current": -1,
@@ -21,7 +22,7 @@
 			"list": []
 		},
 		"game": {
-			"current": -1,
+			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {

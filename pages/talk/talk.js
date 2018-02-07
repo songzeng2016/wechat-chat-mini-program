@@ -4,15 +4,12 @@ const { wc } = app
 let { openId } = app
 const { host, data, isSuccess, success } = wc
 
-let { talk } = require('../../utils/mock.js');
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // talk,
     emoji: true,
     media: true,
     record: true,

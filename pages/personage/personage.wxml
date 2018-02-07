@@ -4,16 +4,15 @@
     <block wx:else>
       <image src='{{userInfo.headimgurl}}' class='userinfo-avatar fl'></image>
       <view class='fl list_msg'>
-          <view class='text_name'>{{userInfo.nickname}}</view>
-          <view class='text_msg '>微信号：123fty</view>
+        <view class='text_name'>{{userInfo.nickname}}</view>
+        <view class='text_msg'>性别：{{userInfo.gender}}</view>
       </view>
-       
     </block>
   </view>
   <view class="usermotto">
-      <text class="addr">地区:</text>
-     <text class="set_font">{{userInfo.province}} {{userInfo.city}}</text>
+    <text class="addr">地区:</text>
+    <text class="set_font">{{userInfo.province}} {{userInfo.city}}</text>
   </view>
-  <button hover-class='btn_hover' class='btn colors' bindtap='navToTalk' >私聊</button>
+  <button hover-class='btn_hover' class='btn colors' bindtap='navToTalk'>私聊</button>
   <button class='btn' bindtap='navToReport'>举报</button>
 </view>

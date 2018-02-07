@@ -8,8 +8,8 @@
 
       <image src='{{item.chatroom_logo}}' class='list_img fl'></image>
       <view class='fl list_msg'>
-        <view class='text_name'>{{item.chatroom_name}}</view>
-        <view class='text_msg '>{{item.chat_newdesc}}</view>
+        <view class='text_name ellipsis'>{{item.chatroom_name}}</view>
+        <view class='text_msg ellipsis'>{{item.chat_newdesc}}</view>
       </view>
       <view class='disply fr list_r'>
         <view>{{item.strchat_updatetime}}</view>

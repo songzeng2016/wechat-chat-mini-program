@@ -13,13 +13,19 @@ Page({
 
   },
 
+  // 查看协议
+  previewAgreement: function () {
+
+  },
+
   // 选择位置
   openLocation: function () {
     const that = this
     wx.chooseLocation({
       success: function (res) {
         that.setData({
-          location: res
+          location: res,
+          chatroom_name: res.name || res.address || ''
         })
       },
     })
