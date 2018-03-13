@@ -31,9 +31,8 @@ page {
 .list-wrapper {
   height: 1200rpx;
   width: 100%;
-  padding: 18rpx;
+  padding: 0 18rpx 100rpx;
   box-sizing: border-box;
-  padding-bottom: 100rpx;
 }
 
 .list {
@@ -107,6 +106,7 @@ page {
 
 .my-list .message {
   padding: 8rpx 19rpx;
+  word-break:break-word;
   background: #a0e75a;
 }
 

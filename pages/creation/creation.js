@@ -15,7 +15,19 @@ Page({
 
   // 查看协议
   previewAgreement: function () {
-
+    console.log(0);
+    wx.downloadFile({
+      url: 'https://sp.yangchengtech.com/milian/upload/Agreement.docx',
+      success: function (res) {
+        var filePath = res.tempFilePath
+        wx.openDocument({
+          filePath: filePath,
+          success: function (res) {
+            // console.log('打开文档成功')
+          }
+        })
+      }
+    });
   },
 
   // 选择位置

@@ -408,7 +408,7 @@ Page({
       OpenID: openId
     }
     wc.get(getData, (json) => {
-      console.log(json)
+      // console.log(json)
       if (json[isSuccess] === success) {
         for (let i in json[data]) {
           that.getMessage(json[data][i])
